@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"/>
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<div id="app" class="container">
+		<h2>Tareas</h2>
+		<ul class="list-group tasks">
+			<li v-for="(task, index) in tasks" class="list-group-item" :class="{editing: task.editing, completed: !task.pending}">
+				<a @click="toogleStatus(task)" href="#"><i :class="task.pending ? 'fa fa-square' : 'fa fa-check-square'" aria-hidden="true"></i></a>
+				
+				<template v-if="!task.editing">
+					<span  class="description">{{ task.description }}</span>
+					<div>
+						<a @click="editTask(task)" href="#">
+							<i class="fa fa-edit"></i>
+						</a>
+						<a @click="deleteTask(index)" href="#">
+							<i class="fa fa-trash-alt"></i>
+						</a>
+					</div>
+				</template>
+
+				<template v-else>
+					<input type="text" v-model="draft">
+					<div>
+						<a @click="updateTask(task)" href="#">
+							<i class="fas fa-check"></i>
+						</a>
+						<a @click="discardTask(task)" href="#">
+							<i class="fas fa-times"></i>
+						</a>
+					</div>
+				</template>
+			</li>
+		</ul>
+
+		<p><a @click="deleteCompleted" href="#">Eliminar tareas completadas</a></p>
+
+		<form @submit.prevent="createTask" class="new-task-form">
+			<input v-model="new_task" type="text" class="form-control">
+			<button class="btn btn-primary">Crear tarea</button>
+		</form>
+		<footer class="footer">
+			<p>&copy; 2018 Styde.net</p>
+		</footer>
+	</div>
+
+
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<script src="app.js"></script>
+</body>
+</html>
