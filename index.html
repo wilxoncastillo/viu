@@ -17,16 +17,18 @@
 		<h2>Tareas</h2>
 		<ul class="list-group tasks">
 			<li v-for="(task, index) in tasks" class="list-group-item" :class="{editing: task.editing, completed: !task.pending}">
-				<a @click="toogleStatus(task)" href="#"><i :class="task.pending ? 'fa fa-square' : 'fa fa-check-square'" aria-hidden="true"></i></a>
+				<a @click="toogleStatus(task)" href="#">
+					<app-icon :img="task.pending ? 'square' : 'check-square'" aria-hidden="true"></app-icon>
+				</a>
 				
 				<template v-if="!task.editing">
 					<span  class="description">{{ task.description }}</span>
 					<div>
 						<a @click="editTask(task)" href="#">
-							<i class="fa fa-edit"></i>
+							<app-icon img='edit'></app-icon>
 						</a>
 						<a @click="deleteTask(index)" href="#">
-							<i class="fa fa-trash-alt"></i>
+							<app-icon img='trash-alt'></app-icon>
 						</a>
 					</div>
 				</template>
@@ -35,10 +37,10 @@
 					<input type="text" v-model="draft">
 					<div>
 						<a @click="updateTask(task)" href="#">
-							<i class="fas fa-check"></i>
+							<app-icon img='check'></app-icon>
 						</a>
 						<a @click="discardTask(task)" href="#">
-							<i class="fas fa-times"></i>
+							<app-icon img='times'></app-icon>
 						</a>
 					</div>
 				</template>

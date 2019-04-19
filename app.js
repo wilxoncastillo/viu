@@ -1,3 +1,15 @@
+//<i class = "fa fa-trash-alt" > </i>
+
+Vue.component('app-icon', {
+	template: '<i :class="cssClasses"></i>',
+	props: ['img'],
+	computed: {
+		cssClasses: function () {
+			return 'fa fa-' + this.img;
+		}
+	}
+});
+
 var vm = new Vue ({
 	el : "#app",
 	
