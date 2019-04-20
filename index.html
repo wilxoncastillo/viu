@@ -25,10 +25,10 @@
 					<span  class="description">{{ task.description }}</span>
 					<div>
 						<a @click="editTask(task)" href="#">
-							<app-icon img='edit'></app-icon>
+							<app-icon img="edit"></app-icon>
 						</a>
 						<a @click="deleteTask(index)" href="#">
-							<app-icon img='trash-alt'></app-icon>
+							<app-icon img="trash-alt"></app-icon>
 						</a>
 					</div>
 				</template>
@@ -37,10 +37,10 @@
 					<input type="text" v-model="draft">
 					<div>
 						<a @click="updateTask(task)" href="#">
-							<app-icon img='check'></app-icon>
+							<app-icon img="check"></app-icon>
 						</a>
 						<a @click="discardTask(task)" href="#">
-							<app-icon img='times'></app-icon>
+							<app-icon img="fa-times"></app-icon>
 						</a>
 					</div>
 				</template>
