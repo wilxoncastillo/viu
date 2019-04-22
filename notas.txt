@@ -1,1 +1,15 @@
 https://styde.net/tag/sublimetext/
+
+https://www.youtube.com/watch?v=Ijz1mXQm7KU
+https://www.youtube.com/watch?v=zbycB-Yetb0
+
+
+
+
+
+Puedes volver a una revisión antigua usando checkout y pasando el hash del commit. Por ejemplo:
+
+git checkout ab25f1ln2b4o3a9c4u1v6k4n1m7 .
+No olvides el punto al final. También puedes descartar cambios mediante reset pasándole el numero de commits. Por ejemplo, para descartar los últimos 3 commits:
+
+git reset --hard HEAD~3
